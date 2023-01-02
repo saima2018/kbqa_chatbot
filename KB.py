@@ -14,8 +14,7 @@ else:
     neo4j_url = "bolt://192.168.1.111:7474"
     toInt = 'toInteger'
 print('连接neo4j数据库')
-session = Graph(host='192.168.1.111', auth=("neo4j", "planck"))
-# session = Graph(neo4j_url, username="neo4j", password="bat100")
+session = Graph(host='192.168.1.111', auth=("username", "password"))
 print('neo4j数据库连接完成,使用服务的地址为：%s' % (neo4j_url))
 
 
