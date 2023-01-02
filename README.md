@@ -13,8 +13,8 @@ A prototype of knowledge graph based question answering bot
 
 -templates：frontend display
 
--KB.py：neo4j knowledge base query
+-KB.py：neo4j databases connection for knowledge base query
 
 -QA_init.py：model initialisation
 
--views.py：flask service
+-views.py：flask service as entry point of project
