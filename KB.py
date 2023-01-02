@@ -84,6 +84,7 @@ class Query(object):
     # 查询实体的歧义实体，并根据歧义实体的权重对实体进行排序，返回歧义实体的所有属性和属性值
     def Q_Z_ByEntity(self, s):
         rel = []
+        # modified cypher query due to different neo4j node property initialisation
         # string = "match (m:Entity)-[r:Relation{name:'歧义关系'}]->(n:Entity)-[r1:Relation{name:'歧义权重'}]->(n1:Entity) where m.name='%s' return m.name,r.name,n.name, %s(n1.name) as weight order by  %s(n1.name) desc"%(s,toInt,toInt)
         string = "match (m:Subject)-[r:`歧义关系`]->(n:Object)-[r1:`歧义权重`]->(n1:Object), (n:Subject)-[r2]->(n2) where m.name='%s' return m.name,type(r) as r,n.name, %s(n1.name) as weight,type(r2) as r2, n2.name order by  %s(n1.name) desc" % (s, toInt, toInt)
         try:
